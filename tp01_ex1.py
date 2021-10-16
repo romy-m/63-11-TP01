@@ -14,8 +14,16 @@ Programme testant si une année, saisie par l'utilisateur,est bissextile ou non
 
 ### Déclaration et Initialisation des variables
 
-                   
+# demande saisie user
+
+user: str = input("Saissisez une année :  ") # demande de saise d'année
+annee: int = int(user) # converstion de l'année en int
 
 ### Séquence d'opération
 
 
+# test si l'année est bissextile
+if annee % 4 == 0 and annee % 100 != 0 or annee % 400 == 0: # vérification que l'année soit bissextile, qu'elle soit un multiple de 100 et de 400.
+    print("L'année saisie est bissextile")
+else:
+    print("L'année saisie n'est pas bissextile")
