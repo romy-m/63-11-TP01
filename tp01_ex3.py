@@ -18,9 +18,41 @@ Programme calculant le niveau de risque cardiovasculaire.
 """
 ### Déclaration et Initialisation des variables
 
+# user input variables
+user_fumeur: str = input("Etes-vous fumeur ? (oui ou non ) ")  # demande utilisateur
+
+user_sport: str = input("Faites-vous du sport ? (oui ou non ) ")  # demande utilisateur
+user_sexe: str = (input("Quel est votre sexe ? "))
+user_age: int = int(input("Quel est votre âge? "))
+niveau_risque: int = 0
+
+# Initialisation user input
+fumeur = user_fumeur.upper()
+sport = user_sport.upper()
+sexe = user_sexe.upper()
 
 
-### Séquence d'opération
 
 
 
+### Séquence d'opération modif du niveau de risque
+
+# test des risque
+if fumeur == "OUI":
+    niveau_risque += 2
+
+if sport == "OUI":
+    niveau_risque -= 1
+
+
+if (user_age >= 50 and sexe == "H") or (user_age >= 60 and sexe == "F"):
+    niveau_risque += 1
+
+
+
+# résultat de niveau de risque
+if niveau_risque <= 1:
+
+    print("Le niveau de risque est faible ({})".format(niveau_risque))
+else:
+    print("Le niveau des risque est élevé ({})".format(niveau_risque))
