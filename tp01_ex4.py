@@ -35,5 +35,64 @@ Ecrire l'algorithme permettant de saisir les données nécessaires
 
 ### Déclaration et Initialisation des variables
 
+# Données
+age_donnee: int = 25
+permis_donnee: int = 2
+pas_accident: int = 0
+an_ass_max : int = 5
+# user inpute
+user_age: int = int(input("Entrez l'âge : "))  # damander à l'utilisateur son age
+user_annee_permis: int = int(input(
+    "Entrez le nombre d'année de permis : "))  # damander à l'utilisateur combien de temps qu'il a obtenu son permis
+user_nb_accident: int = int(
+    input("Entrez le nombre d'accident : "))  # damander à l'utilisateur s'il a déjà fait un accident
+user_nb_annee_ass: int = int(
+    input("Entrez le nombre d'année d'assurance : "))  # damander à l'utilisateur combien de temps qu'il est inscrit à l'assurance
+
+situation: str = ""
+attibution: str = ""
+
+# initialisation des inputs
+age = int(user_age)
+annee_permis = int(user_annee_permis)
+nb_accident = int(user_nb_accident)
+nb_assurance = int(user_nb_annee_ass)
+
+# type de tarifs
+tarif_bleu: str = "Bleu"
+tarif_vert: str = "Vert"
+tarif_orange: str = "Orange"
+tarif_rouge: str = "Rouge"
 
 ### Séquence d'opération
+
+# première etape on test le npmbre d'ancienneté de l'assurré
+
+
+if age < age_donnee and annee_permis < permis_donnee and nb_accident == pas_accident:
+    attibution = tarif_rouge
+if age < age_donnee and annee_permis >= permis_donnee or age >= age_donnee and nb_accident == pas_accident and annee_permis < permis_donnee:
+    attibution = tarif_orange
+if age < age_donnee and annee_permis >= permis_donnee or age >= age_donnee and nb_accident == 1 and annee_permis < permis_donnee:
+    attibution = rouge
+if age >= age_donnee and annee_permis >= permis_donnee and nb_accident == pas_accident :
+    attibution = tarif_vert
+if age >= age_donnee and annee_permis >= permis_donnee and nb_accident == 1 :
+    attibution = tarif_orange
+if age >= age_donnee and annee_permis >= permis_donnee and nb_accident > 1 :
+    attibution = tarif_rouge
+
+
+situation = attibution
+
+# test si l'user est assuré depuis plus de 5 ans
+if nb_assurance >= an_ass_max and attibution == tarif_vert:
+    situation = tarif_bleu
+elif nb_assurance >=  an_ass_max and attibution == tarif_orange:
+    situation = tarif_vert
+elif nb_assurance >=  an_ass_max and attibution == tarif_rouge:
+    situation = tarif_orange
+
+
+
+print("Votre situation : {} ".format(situation))
